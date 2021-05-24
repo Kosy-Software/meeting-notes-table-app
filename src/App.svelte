@@ -6,7 +6,6 @@
     import { KosyApi } from "@kosy/kosy-app-api";
     import BulletPoint from "./components/BulletPoint.svelte";
     import type { ClientToHostMessage, HostToClientMessage } from "./lib/appMessages";
-    import { debounce } from "./lib/debounce";
     
     let state: AppState = { bulletPoints: [], beingEdited: {} };
 
@@ -199,7 +198,7 @@
                 unlockBulletPoint(message.bulletPointId);
                 break;
             case "edit":
-                debounce(() => changeBulletPoint(message.bulletPointId, message.text), 500)();
+                changeBulletPoint(message.bulletPointId, message.text);
                 break;
             case "remove":
                 removeBulletPoint(message.bulletPointId);
