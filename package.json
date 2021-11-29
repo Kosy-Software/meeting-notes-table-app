@@ -4,6 +4,7 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack serve --mode development --compress --open",
+    "check": "svelte-check",
     "build": "webpack --mode production"
   },
   "license": "MIT",
